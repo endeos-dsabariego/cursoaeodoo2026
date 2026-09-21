@@ -19,5 +19,10 @@ class RealEstateProperty(models.Model):
       string='User'
    )
    
+   category_id = fields.Many2one(
+      comodel_name='realestate.category', 
+      string='Category'
+   )
+   
    def action_reserve(self):
       self.availability = False

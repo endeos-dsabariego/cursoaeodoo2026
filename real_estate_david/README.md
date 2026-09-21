@@ -6,6 +6,12 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.3] - 2026-09-21
+#### task3.md
+- Modelo realestate.category y vistas
+- Modelo realestate.offer y vistas
+- Modelo realestate.contract y vistas
+
 ### [1.2] - 2026-09-21
 #### task2.md
 - Traducciones
