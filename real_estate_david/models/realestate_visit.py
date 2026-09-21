@@ -27,6 +27,18 @@ class RealEstateVisit(models.Model):
             ('draft', 'Draft'),
             ('scheduled', 'Scheduled'),
             ('done', 'Done'),
-            ('cancelled', 'Cancelled')
+            ('canceled', 'Canceled')
         ], string='State', default='draft'
     )
+
+    def action_draft(self):
+        self.state = 'draft'
+
+    def action_scheduled(self):
+        self.state = 'scheduled'
+        
+    def action_done(self):
+        self.state = 'done'
+    
+    def action_canceled(self):
+        self.state = 'canceled'

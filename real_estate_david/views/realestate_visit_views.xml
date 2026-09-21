@@ -35,9 +35,15 @@
       <field name="arch" type="xml">
          <form string="Visit">
             <header>
+               <button name="action_draft" string="Draft" type="object" class="btn-primary" invisible="state not in('done','canceled')"/> 
+               <button name="action_scheduled" string="Scheduled" type="object" class="btn-secondary" invisible="state in ('scheduled','done','canceled')"/> 
+               <button name="action_done" string="Done" type="object" class="btn-secondary" invisible="state in('draft','done','canceled')"/> 
+               <button name="action_canceled" string="Canceled" type="object" class="btn-danger" invisible="state in ('canceled')"/> 
+               
                <field name="state" widget="statusbar" options="{'clickable': True}" />
             </header>
             <sheet>
+               <widget name="web_ribbon" invisible="state != 'canceled'" title="Canceled" bg_color="text-bg-danger"/>
                <group>
                   <group>
                      <field name="property_id" />

@@ -6,6 +6,11 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.2] - 2026-09-21
+#### task2.md
+- Traducciones
+- Botones de acción en realstate.visit
+
 ### [1.1] - 2026-09-17
 #### task1.md
 - Modelo realestate.visit

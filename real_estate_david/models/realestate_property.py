@@ -18,3 +18,6 @@ class RealEstateProperty(models.Model):
       comodel_name='res.users', 
       string='User'
    )
+   
+   def action_reserve(self):
+      self.availability = False

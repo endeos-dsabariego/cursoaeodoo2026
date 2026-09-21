@@ -10,7 +10,7 @@
     'application': True,
     
     'depends': ['base'],
-    'version': '1.1',
+    'version': '1.2',
 
     'data': [
         'security/real_estate_security.xml',
