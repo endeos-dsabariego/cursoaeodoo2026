@@ -6,6 +6,11 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.4] - 2026-09-22
+#### task4.md
+- Vista search, kanban, pivot, graph
+- Domain
+
 ### [1.3] - 2026-09-21
 #### task3.md
 - Modelo realestate.category y vistas

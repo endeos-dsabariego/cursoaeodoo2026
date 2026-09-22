@@ -28,7 +28,10 @@ class RealEstateVisit(models.Model):
             ('scheduled', 'Scheduled'),
             ('done', 'Done'),
             ('canceled', 'Canceled')
-        ], string='State', default='draft'
+        ], 
+        string='State', 
+        default='draft', 
+        group_expand=True
     )
 
     def action_draft(self):

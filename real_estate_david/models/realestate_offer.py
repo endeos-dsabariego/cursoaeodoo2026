@@ -18,7 +18,7 @@ class RealEstateOffer(models.Model):
    
    amount = fields.Float(string='Amount')
    
-   date = fields.Date(string='Date')
+   date = fields.Datetime(string='Date')
    
    state = fields.Selection([
       ('draft', 'Draft'),

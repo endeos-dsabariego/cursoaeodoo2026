@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-21 00:00+0000\n"
-"PO-Revision-Date: 2026-09-21 00:00+0000\n"
+"POT-Creation-Date: 2026-09-22 08:59+0000\n"
+"PO-Revision-Date: 2026-09-22 08:59+0000\n"
 "Last-Translator: ENDEOS\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -31,6 +31,8 @@ msgstr "Disponibilidad"
 #: model:ir.model.fields.selection,name:real_estate_david.selection__realestate_visit__state__canceled
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_contract_form_view
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_kanban_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_search_view
 msgid "Canceled"
 msgstr "Cancelado"
 
@@ -49,6 +51,7 @@ msgstr "Crear una visita nueva"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__create_uid
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__create_uid
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__create_uid
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__create_uid
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__create_uid
 msgid "Created by"
 msgstr "Creado por"
@@ -58,6 +61,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__create_date
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__create_date
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__create_date
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__create_date
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__create_date
 msgid "Created on"
 msgstr "Creado el"
@@ -73,6 +77,7 @@ msgstr "Descripción"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__display_name
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__display_name
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__display_name
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__display_name
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
@@ -80,6 +85,7 @@ msgstr "Nombre mostrado"
 #. module: real_estate_david
 #: model:ir.model.fields.selection,name:real_estate_david.selection__realestate_visit__state__done
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_search_view
 msgid "Done"
 msgstr "Realizada"
 
@@ -90,6 +96,7 @@ msgstr "Realizada"
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_contract_form_view
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_offer_form_view
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_search_view
 msgid "Draft"
 msgstr "Borrador"
 
@@ -113,6 +120,7 @@ msgstr "Información"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__id
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__id
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__id
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__id
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__id
 msgid "ID"
 msgstr "ID"
@@ -122,6 +130,7 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__write_uid
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__write_uid
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__write_uid
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__write_uid
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
@@ -131,6 +140,7 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__write_date
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__write_date
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__write_date
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__write_date
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
@@ -175,6 +185,8 @@ msgstr "Propiedades"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__property_id
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__property_id
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_search_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_search_view
 msgid "Property"
 msgstr "Propiedad"
 
@@ -220,6 +232,8 @@ msgstr "Reservar"
 
 #. module: real_estate_david
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_kanban_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_search_view
 msgid "Reserved"
 msgstr "Reservada"
 
@@ -231,6 +245,7 @@ msgstr "Comercial"
 #. module: real_estate_david
 #: model:ir.model.fields.selection,name:real_estate_david.selection__realestate_visit__state__scheduled
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_search_view
 msgid "Scheduled"
 msgstr "Programada"
 
@@ -238,12 +253,14 @@ msgstr "Programada"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__state
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_offer__state
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__state
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_search_view
 msgid "State"
 msgstr "Estado"
 
 #. module: real_estate_david
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__user_id
 #: model:res.groups,name:real_estate_david.group_real_estate_user
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_search_view
 msgid "User"
 msgstr "Usuario"
 
@@ -266,6 +283,7 @@ msgstr "Visitante"
 #. module: real_estate_david
 #: model:ir.actions.act_window,name:real_estate_david.realestate_visit_action
 #: model:ir.ui.menu,name:real_estate_david.realestate_menu_visit
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_calendar_view
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_list_view
 msgid "Visits"
 msgstr "Visitas"
@@ -301,6 +319,7 @@ msgstr "Categorías"
 #: model:ir.model,name:real_estate_david.model_realestate_category
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__category_id
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_category_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_search_view
 msgid "Category"
 msgstr "Categoría"
 
@@ -398,6 +417,7 @@ msgstr "Oferta"
 #. module: real_estate_david
 #: model:ir.actions.act_window,name:real_estate_david.realestate_offer_action
 #: model:ir.ui.menu,name:real_estate_david.realestate_menu_offer
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_offer_calendar_view
 #: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_offer_list_view
 msgid "Offers"
 msgstr "Ofertas"
@@ -443,3 +463,45 @@ msgstr "Enviar"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__start_date
 msgid "Start Date"
 msgstr "Fecha de inicio"
+
+#. module: real_estate_david
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_search_view
+msgid "Available"
+msgstr "Disponible"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__color
+msgid "Color"
+msgstr "Color"
+
+#. module: real_estate_david
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_kanban_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_kanban_view
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: real_estate_david
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_kanban_view
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_visit_kanban_view
+msgid "Edit"
+msgstr "Editar"
+
+#. module: real_estate_david
+#: model:ir.model,name:real_estate_david.model_realestate_property_stage
+msgid "Property Stage"
+msgstr "Etapa de la propiedad"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__stage_id
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__name
+msgid "Stage Name"
+msgstr "Nombre de la etapa"
