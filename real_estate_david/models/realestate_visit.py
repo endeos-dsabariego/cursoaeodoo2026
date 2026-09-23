@@ -23,6 +23,10 @@ class RealEstateVisit(models.Model):
         string='Salesperson'
     )
     
+    phone = fields.Char(string='Phone', related='partner_id.phone', readonly=False)
+    
+    email = fields.Char(string='Email', related='partner_id.email')
+    
     state = fields.Selection([
             ('draft', 'Draft'),
             ('scheduled', 'Scheduled'),
@@ -39,6 +43,7 @@ class RealEstateVisit(models.Model):
 
     def action_scheduled(self):
         self.state = 'scheduled'
+        # self.write({'state': 'scheduled'})
         
     def action_done(self):
         self.state = 'done'

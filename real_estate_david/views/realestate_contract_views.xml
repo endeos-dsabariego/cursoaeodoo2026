@@ -4,6 +4,7 @@
    <!-- Action -->
    <record id="realestate_contract_action" model="ir.actions.act_window">
       <field name="name">Contracts</field>
+      <field name="path">contracts</field>
       <field name="res_model">realestate.contract</field>
       <field name="view_mode">list,form</field>
       <field name="help" type="html">
@@ -24,6 +25,7 @@
             <field name="partner_id" />
             <field name="start_date"  optional="show" />
             <field name="end_date"  optional="show" />
+            <field name="days_in_progress"  optional="show" />
             <field name="rent"  optional="show" />
             <field name="deposit"  optional="show" />
             <field name="state" optional="show" />
@@ -60,8 +62,12 @@
                   <group>
                      <field name="start_date" />
                      <field name="end_date" />
+                     <field name="duration_days" />
+                     <field name="days_in_progress" />
+                     <field name="days_to_end" />
                      <field name="rent" />
                      <field name="deposit" />
+                     <field name="has_deposit" />
                   </group>
                </group>
             </sheet>

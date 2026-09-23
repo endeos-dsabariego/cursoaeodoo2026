@@ -6,6 +6,12 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.5] - 2026-09-23
+#### task5.md
+- Campos calculados (computed)
+- Campos relacionales (related)
+- Métodos ORM
+
 ### [1.4] - 2026-09-22
 #### task4.md
 - Vista search, kanban, pivot, graph

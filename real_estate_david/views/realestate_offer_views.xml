@@ -4,6 +4,7 @@
    <!-- Action -->
    <record id="realestate_offer_action" model="ir.actions.act_window">
       <field name="name">Offers</field>
+      <field name="path">offers</field>
       <field name="res_model">realestate.offer</field>
       <field name="view_mode">list,calendar,form</field>
       <field name="help" type="html">

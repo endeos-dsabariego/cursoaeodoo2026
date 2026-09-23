@@ -3,6 +3,7 @@
    <!-- Action -->
    <record id="realestate_property_action" model="ir.actions.act_window">
       <field name="name">Properties</field>
+      <field name="path">properties</field>
       <field name="res_model">realestate.property</field>
       <field name="view_mode">kanban,list,pivot,graph,form</field>
       <field name="help" type="html">
@@ -37,6 +38,10 @@
          <form string="Property">
             <header>
                <button name="action_reserve" string="Reserve" invisible="not availability" type="object" class="btn-primary" />
+               <button name="action_create_visit" string="Create Visit" type="object" class="btn-secondary" />
+               <button name="action_accept_best_offer" string="Accept Best Offer" type="object" class="btn-secondary" />
+               <button name="action_deleted_refused_offers" string="Delete Refused Offers" type="object" class="btn-secondary" />
+               <button name="action_create_offer" string="Create Offer" type="object" class="btn-secondary" />
                <field name="stage_id" widget="statusbar" />
             </header>
             <sheet>

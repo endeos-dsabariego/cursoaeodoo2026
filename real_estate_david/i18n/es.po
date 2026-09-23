@@ -151,21 +151,11 @@ msgid "Manager"
 msgstr "Responsable"
 
 #. module: real_estate_david
-#: model:ir.rule,name:real_estate_david.real_estate_rule_manager
-msgid "Manager Properties"
-msgstr "Propiedades del responsable"
-
-#. module: real_estate_david
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_category__name
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__name
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__name
 msgid "Name"
 msgstr "Nombre"
-
-#. module: real_estate_david
-#: model:ir.rule,name:real_estate_david.real_estate_rule_user
-msgid "Personal Properties"
-msgstr "Propiedades personales"
 
 #. module: real_estate_david
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__price
@@ -505,3 +495,53 @@ msgstr "Etapa"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_stage__name
 msgid "Stage Name"
 msgstr "Nombre de la etapa"
+
+#. module: real_estate_david
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_form_view
+msgid "Accept Best Offer"
+msgstr "Aceptar la mejor oferta"
+
+#. module: real_estate_david
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_form_view
+msgid "Create Offer"
+msgstr "Crear oferta"
+
+#. module: real_estate_david
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_form_view
+msgid "Create Visit"
+msgstr "Crear visita"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__days_in_progress
+msgid "Days in Progress"
+msgstr "Días en curso"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__days_to_end
+msgid "Days to End"
+msgstr "Días hasta la finalización"
+
+#. module: real_estate_david
+#: model_terms:ir.ui.view,arch_db:real_estate_david.realestate_property_form_view
+msgid "Delete Refused Offers"
+msgstr "Eliminar ofertas rechazadas"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__duration_days
+msgid "Duration (Days)"
+msgstr "Duración (días)"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__email
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_contract__has_deposit
+msgid "Has Deposit"
+msgstr "Tiene fianza"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_visit__phone
+msgid "Phone"
+msgstr "Teléfono"

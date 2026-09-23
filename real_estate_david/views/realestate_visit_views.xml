@@ -4,6 +4,7 @@
    <!-- Action -->
    <record id="realestate_visit_action" model="ir.actions.act_window">
       <field name="name">Visits</field>
+      <field name="path">visits</field>
       <field name="res_model">realestate.visit</field>
       <field name="view_mode">list,kanban,pivot,graph,calendar,form</field>
       <field name="help" type="html">
@@ -52,6 +53,8 @@
                   <group>
                      <field name="date" />
                      <field name="partner_id" />
+                     <field name="phone" />
+                     <field name="email" />
                   </group>
                </group>
             </sheet>
