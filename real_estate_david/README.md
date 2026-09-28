@@ -6,6 +6,19 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.7] - 2026-09-23
+#### task7.md
+- Ejercicios
+- API doc
+
+### [1.6] - 2026-09-23
+#### task6.md
+ - Campo one2many
+ - vistas relacionadas (list_view_ref y form_view_ref)
+ - Opciones many2one (no_create, no_quick_create, no_open)
+ - Uso de context: Dar valores por defecto a un campo one2many
+ - Domain
+
 ### [1.5] - 2026-09-23
 #### task5.md
 - Campos calculados (computed)

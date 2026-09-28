@@ -42,6 +42,8 @@
                <button name="action_accept_best_offer" string="Accept Best Offer" type="object" class="btn-secondary" />
                <button name="action_deleted_refused_offers" string="Delete Refused Offers" type="object" class="btn-secondary" />
                <button name="action_create_offer" string="Create Offer" type="object" class="btn-secondary" />
+               <button name="action_cancel_visits" string="Cancel visits" type="object" />
+               
                <field name="stage_id" widget="statusbar" />
             </header>
             <sheet>
@@ -60,11 +62,47 @@
                   <group>
                      <field name="availability" widget="boolean_toggle" />
                      <field name="user_id" widget="many2one_avatar_user" />
+                     <field name="next_visit_date" />
                   </group>
                </group>
                <notebook>
                   <page name="Information page" string="Information">
                      <field name="description" />
+                  </page>
+                  <page name="Images" string="Images">
+                     <field name="image_ids" context="{'default_name': 'Nombre de la imagen'}">
+                        <list editable="bottom">
+                           <field name="sequence" widget="handle"/>
+                           <field name="name" />
+                           <field name="image" widget="image"/>
+                        </list>
+                     </field>
+                  </page>
+                  <page name="Visits" string="Visits">
+                     <field name="visit_ids" context="{'list_view_ref':'real_estate_david.realestate_visit_list_simple_view','default_user_id':user_id}"/>
+                  </page>
+                  <page name="Incidents" string="Incidents">
+                     <field name="incident_ids" context="{'default_user_id': user_id}">
+                        <list editable="top">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="date"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="state" widget="badge"/>
+                            <field name="user_id" options="{'no_create': True, 'no_open':True}" domain="[('share','=',False)]" widget="many2one_avatar_user"/>
+                        </list>
+                     </field>
+                  </page>
+                  <page name="Offers" string="Offers">
+                     <field name="offers_ids" >
+                        <list editable="bottom">
+                           <field name="date" />
+                           <field name="partner_id" />
+                           <field name="amount" />
+                           <field name="state" widget="badge" decoration-success="state == 'draft'" decoration-warning="state == 'sent'" decoration-danger="state == 'refused'" />
+                        </list>
+                     </field>
                   </page>
                </notebook>
             </sheet>
