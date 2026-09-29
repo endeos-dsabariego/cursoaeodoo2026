@@ -10,9 +10,10 @@
     'application': True,
     
     'depends': ['base'],
-    'version': '1.7',
+    'version': '1.8',
 
     'data': [
+        'data/ir_cron.xml',
         'security/real_estate_security.xml',
         'security/ir.model.access.csv',
         'views/realestate_property_views.xml',

@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class RealEstateVisit(models.Model):
     _name = 'realestate.visit'
@@ -11,7 +11,7 @@ class RealEstateVisit(models.Model):
         required=True,
     )
     
-    date = fields.Datetime(string='Visit Date')
+    date = fields.Datetime(string='Visit Date', default=fields.Datetime.now)
     
     partner_id = fields.Many2one(
         comodel_name='res.partner', 
@@ -23,9 +23,9 @@ class RealEstateVisit(models.Model):
         string='Salesperson'
     )
     
-    phone = fields.Char(string='Phone', related='partner_id.phone', readonly=False)
+    phone = fields.Char(string='Phone')
     
-    email = fields.Char(string='Email', related='partner_id.email')
+    email = fields.Char(string='Email')
     
     state = fields.Selection([
             ('draft', 'Draft'),
@@ -50,3 +50,13 @@ class RealEstateVisit(models.Model):
     
     def action_canceled(self):
         self.state = 'canceled'
+        
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.phone = self.partner_id.phone
+            self.email = self.partner_id.email
+            
+    def _cron_finish_visits(self):
+        visits = self.env['realestate.visit'].search([('state','=','scheduled'),('date','<',fields.Datetime.now())])
+        visits.write({'state':'done'})

@@ -647,3 +647,43 @@ msgstr "Muy alta"
 #: model:ir.model.fields,field_description:real_estate_david.field_realestate_property_incident__name
 msgid "name"
 msgstr "Nombre"
+
+#. module: real_estate_david
+#: model:ir.model.constraint,message:real_estate_david.constraint_realestate_contract_name_uniq
+msgid "Contract name must be unique"
+msgstr "El nombre del contrato debe ser único"
+
+#. module: real_estate_david
+#: code:addons/real_estate_david/models/realestate_contract.py:0
+msgid "End date cannot be earlier than Start date"
+msgstr "La fecha de finalización no puede ser anterior a la fecha de inicio"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__incident_count
+msgid "Incident count"
+msgstr "Número de incidencias"
+
+#. module: real_estate_david
+#: model:ir.actions.server,name:real_estate_david.realestate_contract_finish_cron_ir_actions_server
+msgid "Real Estate: finish contracts with end date passed"
+msgstr "Inmobiliaria: finalizar contratos con la fecha de finalización vencida"
+
+#. module: real_estate_david
+#: model:ir.actions.server,name:real_estate_david.realestate_visit_done_cron_ir_actions_server
+msgid "Real Estate: finish visits with end date passed"
+msgstr "Inmobiliaria: finalizar visitas con la fecha vencida"
+
+#. module: real_estate_david
+#: code:addons/real_estate_david/models/realestate_offer.py:0
+msgid "The offer amount must be positive"
+msgstr "El importe de la oferta debe ser positivo"
+
+#. module: real_estate_david
+#: model:ir.model.constraint,message:real_estate_david.constraint_realestate_property_reference_uniq
+msgid "The property reference must be unique"
+msgstr "La referencia de la propiedad debe ser única"
+
+#. module: real_estate_david
+#: model:ir.model.fields,field_description:real_estate_david.field_realestate_property__visit_count
+msgid "Visit count"
+msgstr "Número de visitas"

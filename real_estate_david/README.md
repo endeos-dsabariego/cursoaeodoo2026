@@ -6,6 +6,16 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.8] - 2026-09-23
+#### task8.md
+- Decoradores: @api.constrains, @onchange,
+- Actions
+- Manejo de errores
+- Defaults
+- Smart buttons
+- Cron
+
+
 ### [1.7] - 2026-09-23
 #### task7.md
 - Ejercicios

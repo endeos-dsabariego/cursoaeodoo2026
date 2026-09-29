@@ -16,7 +16,8 @@ class RealEstateProperty(models.Model):
    
    user_id = fields.Many2one(
       comodel_name='res.users', 
-      string='User'
+      string='User',
+      default=lambda self: self.env.user.id
    )
    
    category_id = fields.Many2one(
@@ -57,6 +58,15 @@ class RealEstateProperty(models.Model):
    next_visit_date = fields.Datetime(string='Next visit date', compute='_next_visit_date', store=True)
    
    color = fields.Integer(string='Color')
+   
+   visit_count = fields.Integer(string='Visit count', compute='_compute_visit_count')
+   
+   incident_count = fields.Integer(string='Incident count', compute='_compute_incident_count')
+   
+   _reference_uniq = models.Constraint(
+      'UNIQUE(reference)', 
+      'The property reference must be unique'
+   )
    
    def action_reserve(self):
       self.availability = False
@@ -106,4 +116,33 @@ class RealEstateProperty(models.Model):
          scheduled_visits = record.visit_ids.filtered(lambda visit: visit.state == 'scheduled' and visit.date)
          visit_dates = scheduled_visits.mapped('date')
          record.next_visit_date = min(visit_dates) if visit_dates else False
+         
+   def _compute_visit_count(self):
+      for record in self:
+         record.visit_count = len(record.visit_ids)
+         
+   def _compute_incident_count(self):
+      for record in self:
+         record.incident_count = len(record.incident_ids)
+   
+   # Smart button
+   def action_open_visits(self):
+      return {
+         'type': 'ir.actions.act_window',
+         'name':'Visits',
+         'res_model':'realestate.visit',
+         'view_mode':'list,form',
+         'domain':[('property_id','=',self.id)],
+         'context':{'default_property_id':self.id}
+      }
+   
+   def action_open_incidents(self):
+      return {
+         'type': 'ir.actions.act_window',
+         'name':'Incidents',
+         'res_model':'realestate.property.incident',
+         'view_mode':'list,form',
+         'domain':[('property_id','=',self.id)],
+         'context':{'default_property_id':self.id}
+      }
 

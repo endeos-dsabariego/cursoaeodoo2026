@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class RealEstateContract(models.Model):
@@ -6,6 +7,9 @@ class RealEstateContract(models.Model):
    _description = 'Contract'
    
    name = fields.Char(string='Name')
+   _name_uniq = models.Constraint(
+      'UNIQUE(name)','Contract name must be unique'
+   )
    
    contract_type = fields.Selection([
       ('sale', 'Sale'),
@@ -24,7 +28,7 @@ class RealEstateContract(models.Model):
       required=True
    )
    
-   start_date = fields.Date(string='Start Date')
+   start_date = fields.Date(string='Start Date', default = fields.Date.today)
    
    end_date = fields.Date(string='End Date')
    
@@ -89,3 +93,21 @@ class RealEstateContract(models.Model):
             record.days_in_progress = (today - record.start_date).days
          else:
             record.days_in_progress = 0
+            
+   def _cron_finish_contracts(self):
+      contracts = self.env['realestate.contract'].search([
+         ('end_date','<',fields.Date.today()),
+         ('state','=','in_progress')
+      ])
+      contracts.write({'state':'finished'})
+      
+   @api.constrains('start_date','end_date')
+   def check_dates(self):
+      for record in self:
+         if (record.start_date and record.end_date and record.end_date < record.start_date):
+            raise ValidationError(_('End date cannot be earlier than Start date'))
+         
+   @api.onchange('property_id')
+   def _onchange_property_id(self):
+      if self.property_id:
+         self.rent = self.property_id.price
