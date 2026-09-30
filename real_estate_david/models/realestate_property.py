@@ -8,9 +8,17 @@ class RealEstateProperty(models.Model):
    
    description = fields.Text(string='Description')
    
-   price = fields.Float(string='Price')
+   active = fields.Boolean(string="Active", default=True)
    
-   reference = fields.Char(string='Reference')
+   price = fields.Monetary(string='Price', currency_field='currency_id')
+   
+   currency_id = fields.Many2one(
+      comodel_name='res.currency',
+      string='Currency',
+      default=lambda self:self.env.user.id
+   )
+   
+   reference = fields.Char(string='Reference', copy=False)
    
    availability = fields.Boolean(string="Availability", default=True)
    
@@ -54,8 +62,16 @@ class RealEstateProperty(models.Model):
       inverse_name='property_id',
       string='Offers',
    )
+   
+   internal_note = fields.Text(string='Internal note', company_dependent = True)
+   
+   company_id = fields.Many2one(
+      comodel_name='res.company',
+      string='Company',
+      default = lambda self: self.env.company.id
+   )
 
-   next_visit_date = fields.Datetime(string='Next visit date', compute='_next_visit_date', store=True)
+   next_visit_date = fields.Datetime(string='Next visit date', compute='_next_visit_date', inverse="_inverse_next_visit_day", store=True)
    
    color = fields.Integer(string='Color')
    
@@ -116,6 +132,13 @@ class RealEstateProperty(models.Model):
          scheduled_visits = record.visit_ids.filtered(lambda visit: visit.state == 'scheduled' and visit.date)
          visit_dates = scheduled_visits.mapped('date')
          record.next_visit_date = min(visit_dates) if visit_dates else False
+   
+   def _inverse_next_visit_day(self):
+      for record in self:
+         if record.next_visit_date:
+            scheduled_visits = record.visit_ids.filtered(lambda visit: visit.state == 'scheduled')
+            if scheduled_visits:
+               scheduled_visits[0].date = record.next_visit_date
          
    def _compute_visit_count(self):
       for record in self:

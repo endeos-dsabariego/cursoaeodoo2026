@@ -10,7 +10,7 @@
     'application': True,
     
     'depends': ['base'],
-    'version': '1.8',
+    'version': '1.9',
 
     'data': [
         'data/ir_cron.xml',
@@ -22,5 +22,7 @@
         'views/realestate_offer_views.xml',
         'views/realestate_contract_views.xml',
         'views/realestate_menuitems.xml',
+        'wizard/realestate_property_change_stage.xml',
+        'wizard/realestate_property_create_visits.xml'
     ],
 }

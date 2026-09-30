@@ -40,9 +40,9 @@
                <button name="action_reserve" string="Reserve" invisible="not availability" type="object" class="btn-primary" />
                <button name="action_create_visit" string="Create Visit" type="object" class="btn-secondary" />
                <button name="action_accept_best_offer" string="Accept Best Offer" type="object" class="btn-secondary" />
-               <button name="action_deleted_refused_offers" string="Delete Refused Offers" type="object" class="btn-secondary" />
+               <button name="action_deleted_refused_offers" groups="real_estate_david.group_real_estate_manager" string="Delete Refused Offers" type="object" class="btn-secondary" />
                <button name="action_create_offer" string="Create Offer" type="object" class="btn-secondary" />
-               <button name="action_cancel_visits" string="Cancel visits" type="object" />
+               <button name="action_cancel_visits" groups="real_estate_david.group_real_estate_manager" string="Cancel visits" type="object" />
                
                <field name="stage_id" widget="statusbar" />
             </header>
@@ -65,12 +65,14 @@
                   <group>
                      <field name="reference" />
                      <field name="category_id" />
-                     <field name="price" />
+                     <field name="price" widget="monetary"/>
+                     <field name="currency_id" invisible="1"/>
                   </group>
                   <group>
                      <field name="availability" widget="boolean_toggle" />
                      <field name="user_id" widget="many2one_avatar_user" />
                      <field name="next_visit_date" />
+                     <field name="company_id" />
                   </group>
                </group>
                <notebook>

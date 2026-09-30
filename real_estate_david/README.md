@@ -6,7 +6,20 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
-### [1.8] - 2026-09-23
+### [1.9] - 2026-09-30
+#### task9.md
+Campos avanzados:
+- Groups
+- Company_dependent
+- copy
+- compute inverse
+- compute search
+- monetary
+- Campos reservados: name, active, state, parent_id, parent_path, company_id, sequence
+Wizards
+
+
+### [1.8] - 2026-09-29
 #### task8.md
 - Decoradores: @api.constrains, @onchange,
 - Actions
@@ -16,12 +29,12 @@ Curso AEOdoo 2026
 - Cron
 
 
-### [1.7] - 2026-09-23
+### [1.7] - 2026-09-28
 #### task7.md
 - Ejercicios
 - API doc
 
-### [1.6] - 2026-09-23
+### [1.6] - 2026-09-28
 #### task6.md
  - Campo one2many
  - vistas relacionadas (list_view_ref y form_view_ref)
