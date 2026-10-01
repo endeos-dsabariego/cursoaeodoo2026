@@ -6,6 +6,15 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.10] - 2026-09-30
+#### task10.md
+Qweb
+Template
+Paper format
+Action report
+Extend report
+task10.md
+
 ### [1.9] - 2026-09-30
 #### task9.md
 Campos avanzados:
