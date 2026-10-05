@@ -63,6 +63,22 @@ class RealEstateProperty(models.Model):
       string='Offers',
    )
    
+   contract_ids = fields.One2many(
+      comodel_name='realestate.contract', 
+      inverse_name='property_id',
+      string='Contract'
+   )
+   
+   tag_ids = fields.Many2many(
+      comodel_name="realestate.property.tag",
+      relation="realestate_property_tag_rel",
+      column1="realestate_property_id",
+      column2="realestate_property_tag_id",
+      string="Tags"
+   )
+
+   
+   
    internal_note = fields.Text(string='Internal note', company_dependent = True)
    
    company_id = fields.Many2one(
@@ -78,6 +94,8 @@ class RealEstateProperty(models.Model):
    visit_count = fields.Integer(string='Visit count', compute='_compute_visit_count')
    
    incident_count = fields.Integer(string='Incident count', compute='_compute_incident_count')
+   
+   contract_count = fields.Integer(string='Contract count', compute='_compute_contract_count')
    
    _reference_uniq = models.Constraint(
       'UNIQUE(reference)', 
@@ -148,6 +166,10 @@ class RealEstateProperty(models.Model):
       for record in self:
          record.incident_count = len(record.incident_ids)
    
+   def _compute_contract_count(self):
+      for record in self:
+         record.contract_count = len(record.contract_ids)
+   
    # Smart button
    def action_open_visits(self):
       return {
@@ -164,6 +186,16 @@ class RealEstateProperty(models.Model):
          'type': 'ir.actions.act_window',
          'name':'Incidents',
          'res_model':'realestate.property.incident',
+         'view_mode':'list,form',
+         'domain':[('property_id','=',self.id)],
+         'context':{'default_property_id':self.id}
+      }
+      
+   def action_open_contracts(self):
+      return {
+         'type': 'ir.actions.act_window',
+         'name':'Contracts',
+         'res_model':'realestate.contract',
          'view_mode':'list,form',
          'domain':[('property_id','=',self.id)],
          'context':{'default_property_id':self.id}

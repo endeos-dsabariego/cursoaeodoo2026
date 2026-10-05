@@ -21,11 +21,14 @@
         'views/realestate_category_views.xml',
         'views/realestate_offer_views.xml',
         'views/realestate_contract_views.xml',
+        'views/realestate_property_tag_views.xml',
         'views/realestate_menuitems.xml',
         'wizard/realestate_property_change_stage.xml',
         'wizard/realestate_property_create_visits.xml',
+        'wizard/realestate_visit_change_state.xml',
         'report/realestate_property_report.xml',
         'report/realestate_property_simple_report.xml',
         'report/realestate_contract_report.xml',
+        'report/realestate_offer_report.xml'
     ],
 }

@@ -22,7 +22,3 @@ class RealEstatePropertyChangeStage(models.TransientModel):
          'domain':[('id','in',active_ids)],
       }
       
-   
-   # Demtro en la propiedad : Planificar visitas
-   # wizard: fecha inicio y fecha fin
-   # al confirmar, crea visitas por cada día que le hemos dado de rango

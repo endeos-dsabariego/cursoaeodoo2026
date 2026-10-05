@@ -6,6 +6,13 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.11] - 2026-10-05
+#### task11.md
+- Ejercicios
+Many2many
+task11.md
+
+
 ### [1.10] - 2026-09-30
 #### task10.md
 Qweb
