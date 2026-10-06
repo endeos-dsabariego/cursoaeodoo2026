@@ -111,3 +111,10 @@ class RealEstateContract(models.Model):
    def _onchange_property_id(self):
       if self.property_id:
          self.rent = self.property_id.price
+   
+   @api.model_create_multi
+   def create(self, vals_list):
+      for vals in vals_list:
+         if not vals.get('name'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('realestate.contract')
+      return super().create(vals_list)

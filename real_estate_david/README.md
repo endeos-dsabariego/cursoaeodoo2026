@@ -6,6 +6,16 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.12] - 2026-10-05
+#### task12.md
+Herencia (inherit):
+- Herencia de Modelo
+- Herencia de Vistas
+- Herencia de Métodos
+Secuencias
+Herencia por delegación (inherits)
+task12.md
+
 ### [1.11] - 2026-10-05
 #### task11.md
 - Ejercicios

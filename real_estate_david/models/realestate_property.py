@@ -28,6 +28,16 @@ class RealEstateProperty(models.Model):
       default=lambda self: self.env.user.id
    )
    
+   agent_id = fields.Many2one(
+      comodel_name='realestate.agent',
+      string='Agent'
+   )
+   
+   owner_id = fields.Many2one(
+      comodel_name='realestate.owner',
+      string='Owner'
+   )
+   
    category_id = fields.Many2one(
       comodel_name='realestate.category', 
       string='Category'
@@ -76,8 +86,7 @@ class RealEstateProperty(models.Model):
       column2="realestate_property_tag_id",
       string="Tags"
    )
-
-   
+  
    
    internal_note = fields.Text(string='Internal note', company_dependent = True)
    
