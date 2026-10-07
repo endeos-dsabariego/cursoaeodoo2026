@@ -6,6 +6,7 @@
       <field name="path">properties</field>
       <field name="res_model">realestate.property</field>
       <field name="view_mode">kanban,list,pivot,graph,form</field>
+      <field name="context">{'search_default_availability': 1}</field>
       <field name="help" type="html">
          <p class="o_view_nocontent_smiling_face">Create a new property</p>
          <p>Fill in the details of the property you want to create.</p>
@@ -123,6 +124,7 @@
                   </page>
                </notebook>
             </sheet>
+            <chatter/>
          </form>
       </field>
    </record>

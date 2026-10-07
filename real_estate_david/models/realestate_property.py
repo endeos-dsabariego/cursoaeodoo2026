@@ -3,6 +3,7 @@ from odoo import models, fields, api
 class RealEstateProperty(models.Model):
    _name = 'realestate.property'
    _description = 'Property'
+   _inherit = ['mail.thread', 'mail.activity.mixin']
    
    name = fields.Char(string='Name', required=True)
    
@@ -46,7 +47,9 @@ class RealEstateProperty(models.Model):
    stage_id = fields.Many2one(
       comodel_name='realestate.property.stage',
       string='Stage',
-      group_expand='_read_group_stage_ids'
+      group_expand='_read_group_stage_ids',
+      tracking=True
+      
    )
    
    image_ids = fields.One2many(
@@ -96,7 +99,7 @@ class RealEstateProperty(models.Model):
       default = lambda self: self.env.company.id
    )
 
-   next_visit_date = fields.Datetime(string='Next visit date', compute='_next_visit_date', inverse="_inverse_next_visit_day", store=True)
+   next_visit_date = fields.Datetime(string='Next visit date', compute='_compute_next_visit_date', inverse="_inverse_next_visit_day", store=True)
    
    color = fields.Integer(string='Color')
    
@@ -129,6 +132,7 @@ class RealEstateProperty(models.Model):
       best_offer = self.env['realestate.offer'].search([('property_id', '=', self.id),('state','=','sent')], order='amount desc', limit=1)
       if best_offer:
          best_offer.action_accept()
+      self.message_post(body=f"The best offer of {best_offer.amount} has been accepted.")
             
    def action_deleted_refused_offers(self):
       refused_offers = self.env['realestate.offer'].search([('property_id', '=', self.id),('state','=','refused')])
@@ -140,6 +144,9 @@ class RealEstateProperty(models.Model):
          'amount':self.price,
       }
       offer = self.env['realestate.offer'].create(vals)
+      offer.message_post_with_source('mail.message_origin_link', 
+                                     render_values={'self': offer, 'origin': self},
+                                     subtype_xmlid='mail.mt_note')
       offer.action_send()
 
    def action_cancel_visits(self):
@@ -151,7 +158,7 @@ class RealEstateProperty(models.Model):
 
       
    @api.depends('visit_ids.date', 'visit_ids.state')
-   def _next_visit_date(self):
+   def _compute_next_visit_date(self):
       for record in self:
          # next_visit = self.env['realestate.visit'].search([('property_id','=',record.id),('state','=','scheduled')], order='date asc', limit=1)
          # record.next_visit_date = next_visit.date
@@ -187,7 +194,8 @@ class RealEstateProperty(models.Model):
          'res_model':'realestate.visit',
          'view_mode':'list,form',
          'domain':[('property_id','=',self.id)],
-         'context':{'default_property_id':self.id}
+         'context':{'default_property_id':self.id,
+                    'search_default_scheduled': 1}
       }
    
    def action_open_incidents(self):

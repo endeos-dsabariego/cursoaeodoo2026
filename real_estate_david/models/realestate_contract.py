@@ -5,6 +5,7 @@ from odoo.exceptions import ValidationError
 class RealEstateContract(models.Model):
    _name = 'realestate.contract'
    _description = 'Contract'
+   _inherit = ['mail.thread', 'mail.activity.mixin']
    
    name = fields.Char(string='Name', copy=False)
    _name_uniq = models.Constraint(
@@ -49,7 +50,7 @@ class RealEstateContract(models.Model):
       ('in_progress', 'In Progress'),
       ('finished', 'Finished'),
       ('canceled', 'Canceled')
-   ], default='draft', string='State')
+   ], default='draft', string='State', tracking=True)
    
   
    def action_draft(self):

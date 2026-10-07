@@ -9,8 +9,8 @@
     'category': 'ENDEOS / Customizations',
     'application': True,
     
-    'depends': ['base'],
-    'version': '1.12',
+    'depends': ['base', 'mail'],
+    'version': '1.13',
 
     'data': [
         'data/ir_cron.xml',

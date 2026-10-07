@@ -6,6 +6,13 @@ Curso AEOdoo 2026
 ## Known issues / Roadmap
 
 ## Changelog
+### [1.13] - 2026-10-05
+#### task13.md
+Context
+Mixins
+- Chatter
+Tests
+
 ### [1.12] - 2026-10-05
 #### task12.md
 Herencia (inherit):
